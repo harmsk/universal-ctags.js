@@ -1,0 +1,3 @@
+[submodule "ext/libxml2"]
+	path = ext/libxml2
+	url = git://git.gnome.org/libxml2
