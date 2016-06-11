@@ -45,3 +45,7 @@ endif
 	cd ext/libxml2 && emmake make install
 
 # TODO: readtags
+
+# TODO: clean everything...
+clean:
+	rm lib/ctags.js lib/readtags.js
