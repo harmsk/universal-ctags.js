@@ -5,8 +5,8 @@ var FS_MOUNT = '/fs';
 module.exports = {
 	ctags: function(args) {
 		// ctags.js can only be called once; we need a new instance each time.
-		var Module = require('lib/ctags.js') // noInitialRun required
-		delete require.cache[require.resolve('lib/ctags.js')]
+		var Module = require('./lib/ctags.js') // noInitialRun required
+		delete require.cache[require.resolve('./lib/ctags.js')]
 
 		Module['initFS'](FS_MOUNT);
 
