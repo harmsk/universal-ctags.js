@@ -1,3 +1,6 @@
 [submodule "ext/libxml2"]
 	path = ext/libxml2
 	url = git://git.gnome.org/libxml2
+[submodule "ext/ctags"]
+	path = ext/ctags
+	url = git@github.com:harmsk/universal-ctags.git
