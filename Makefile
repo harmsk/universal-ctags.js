@@ -34,7 +34,7 @@ clean:
 	rm -f lib/ctags.js
 
 test: ext/ctags/ctags
-	cd ext/libxml2 && emmake make units
+	cd ext/ctags && emmake make units
 
 ext/ctags/ctags: lib/ctags.js
-	ln -s ../ctags.sh $@
+	ln -s ../../ctags $@
