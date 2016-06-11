@@ -5,7 +5,7 @@ EMSCRIPTEN_FLAGS=-Oz
 
 all: ctags
 
-ctags: ext/ctags/ctags
+ctags: lib/ctags.js
 
 lib/ctags.js: ext/ctags/ctags.bc ext/libxml2/build/lib/libxml2.bc lib/pre.js lib/post.js
 	emcc $(EMSCRIPTEN_FLAGS) --memory-init-file 0 -s EMULATE_FUNCTION_POINTER_CASTS=1 --pre-js lib/pre.js --post-js lib/post.js -o $@ ext/ctags/ctags.bc ext/libxml2/build/lib/libxml2.bc
@@ -14,9 +14,6 @@ ext/ctags/ctags.bc: ext/libxml2/build/lib/libxml2.bc
 	cd ext/ctags && ./autogen.sh
 	cd ext/ctags && emconfigure ./configure --disable-external-sort CFLAGS="$(EMSCRIPTEN_FLAGS)" PKG_CONFIG_PATH="../libxml2/build/lib/pkgconfig/"
 	cd ext/ctags && emmake make
-
-ext/ctags/ctags: lib/ctags.js
-	ln -s ../ctags.sh $@
 
 libxml2: ext/libxml2/build/lib/libxml2.bc
 
@@ -31,5 +28,13 @@ ext/libxml2/build/lib/libxml2.a:
 
 clean:
 	cd ext/libxml2 && emmake make clean
+	rm -rf ext/libxml2/build
 	cd ext/ctags && emmake make clean
-	rm lib/ctags.js
+	rm -f ext/ctags/ctags
+	rm -f lib/ctags.js
+
+test: ext/ctags/ctags
+	cd ext/libxml2 && emmake make units
+
+ext/ctags/ctags: lib/ctags.js
+	ln -s ../ctags.sh $@
