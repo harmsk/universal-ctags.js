@@ -1,4 +1,4 @@
-.PHONY: all clean test ctags-tmain ctags-units git-clean FORCE
+.PHONY: all clean test clean-ctags clean-libxml2 ctags-tmain ctags-units git-clean FORCE
 .DEFAULT_GOAL: all
 
 all: lib/ctags.js
@@ -22,9 +22,13 @@ ext/libxml2/build/lib/libxml2.bc:
 	cd ext/libxml2 && emmake make install
 	cp ext/libxml2/build/lib/libxml2.a $@
 
-clean:
+clean: clean-libxml2 clean-ctags
+
+clean-libxml2:
 	cd ext/libxml2 && emmake make clean
 	rm -rf ext/libxml2/build
+
+clean-ctags:
 	cd ext/ctags && emmake make clean
 	rm -f ext/ctags/ctags
 	rm -f lib/ctags.js
@@ -43,3 +47,4 @@ ctags-units: ext/ctags/ctags
 
 ext/ctags/ctags: lib/ctags.js
 	ln -s ../../ctags $@
+	touch ctags
