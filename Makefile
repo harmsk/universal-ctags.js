@@ -1,4 +1,4 @@
-.PHONY: all clean test clean-ctags clean-libxml2 ctags-tmain ctags-units git-clean FORCE
+.PHONY: all clean test clean-ctags clean-libxml2 ctags-tmain ctags-units git-init git-clean FORCE
 .DEFAULT_GOAL: all
 
 all: lib/ctags.js
@@ -33,10 +33,6 @@ clean-ctags:
 	rm -f ext/ctags/ctags
 	rm -f lib/ctags.js
 
-git-clean:
-	cd ext/libxml2 && git clean -dfx
-	cd ext/ctags && git clean -dfx
-
 test: ctags-tmain ctags-units
 
 ctags-tmain: ext/ctags/ctags
@@ -48,3 +44,10 @@ ctags-units: ext/ctags/ctags
 ext/ctags/ctags: lib/ctags.js
 	ln -s ../../ctags $@
 	touch ctags
+
+git-init:
+	git submodule update --init --recursive
+
+git-clean:
+	cd ext/libxml2 && git clean -dfx
+	cd ext/ctags && git clean -dfx

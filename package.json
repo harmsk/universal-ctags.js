@@ -1,23 +1,23 @@
 {
   "name": "universal-ctags",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "universal ctags compiled to Javascript with emscripten for use with node.js",
   "main": "index.js",
   "scripts": {
+    "prepublish": "make git-init git-clean all",
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/harmsk/universal-ctags.js.git"
+    "url": "https://github.com/harmsk/universal-ctags.js.git"
   },
   "keywords": [
     "ctags",
-    "universal",
-    "ctags",
+    "universal ctags",
     "emscripten"
   ],
-  "author": "Kyle J. Harms",
-  "license": "ISC",
+  "author": "Kyle J. Harms <kyle.harms@gmail.com>",
+  "license": "MIT AND GPL-2.0",
   "bugs": {
     "url": "https://github.com/harmsk/universal-ctags.js/issues"
   },
