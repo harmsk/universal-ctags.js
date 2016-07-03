@@ -5,6 +5,8 @@ A [node.js](https://nodejs.org/) package of
 [universal ctags](https://github.com/universal-ctags/ctags) compiled to
 Javascript with [emscripten](https://kripken.github.io/emscripten-site/).
 
+**Maintainer**: Kyle J. Harms <kyle.harms@gmail.com>
+
 ## Version
 
 Upstream has not produced a versioned release. When a versioned release
