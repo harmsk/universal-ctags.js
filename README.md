@@ -15,7 +15,7 @@ then, this package will grab snapshot's of upstream's master branch.
 
 universal-ctags.js version | universal ctags git snapshot
 -------------------------- | ----------------------------
-0.0.1                      | 082b085e549d0eb01bbfb2eea27bf265a5faf3b3
+0.0.1                      | universal-ctags/ctags@082b085e549d0eb01bbfb2eea27bf265a5faf3b3
 
 ## Usage
 
@@ -79,8 +79,10 @@ hasn't yet started (Incomplete).
    characters. This affects calls to `ctags.generateTags([])`. This seems to be
    an issue with how emscripten coverts text written to stdout to a Javascript
    string. This works fine when writing to a file. (Unknown)
- * All of the external tag generators (`xcmd`) do not yet work. This affects
-   CoffeeScript tags with the `coffeetags` program. (Incomplete)
+ * All of the external tag generators
+   ([xcmd](https://github.com/universal-ctags/ctags/blob/master/docs/xcmd.rst))
+   do not yet work. This affects CoffeeScript tags with the `coffeetags`
+   program. (Incomplete)
 * Windows support is unknown. Emscripten runs in a UNIX-like
   environment. It is not know if this affects tag generation on Windows. The
   paths in the tag files may need to be converted to Windows style paths.
