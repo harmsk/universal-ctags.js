@@ -13,9 +13,9 @@ Upstream has not produced a versioned release. When a versioned release
 does happen, this package will try to follow the same version numbers. Until
 then, this package will grab snapshot's of upstream's master branch.
 
-universal-ctags.js version | universal ctags git snapshot
+universal-ctags.js version | universal-ctags/ctags hash
 -------------------------- | ----------------------------
-0.0.1                      | universal-ctags/ctags@082b085e549d0eb01bbfb2eea27bf265a5faf3b3
+0.0.1                      | 082b085e549d0eb01bbfb2eea27bf265a5faf3b3
 
 ## Usage
 
@@ -24,6 +24,9 @@ program.
 
 The syntax for all calls to universal-ctags.js is the same as the command line
 [syntax](http://docs.ctags.io/en/latest/news.html#new-options) to ctags program.
+
+**Note**: Currently this package only supports running inside a node.js
+environment.
 
 ```javascript
 var ctags = require("universal-ctags");
